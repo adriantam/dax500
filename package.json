@@ -1,0 +1,16 @@
+{
+  "name": "dax500",
+  "version": "0.0.1",
+  "description": "Sript reproduce DAX 500 issue",
+  "main": "./index.js",
+  "scripts": {
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@auth0/fga": "^0.9.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.13.0"
+  }
+}
