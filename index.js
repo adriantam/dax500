@@ -1,7 +1,11 @@
 const { Auth0FgaApi } = require("@auth0/fga"); // OR import { Auth0FgaApi } from '@auth0/fga';
 
-const MIN_SLEEP_TIME = 100;
+//const MIN_SLEEP_TIME = 100;
+const MIN_SLEEP_TIME = 10;
 const NUM_WRITE_TUPLE_SET = 300;
+
+const USER_PREFIX = "abcd123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"
+const OBJECT_PREFIX = "xxxx12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"
 
 function getRandomInt(min, max){
   min = Math.ceil(min);
@@ -16,54 +20,54 @@ async function write_data(authFga, modelId) {
         writes: {
           tuple_keys: [
             {
-              user: `user:${index}-0`,
+              user: `user:${USER_PREFIX}-${index}-0`,
               relation: "admin",
-              object: `repo:${index}-0`,
+              object: `repo:${OBJECT_PREFIX}-${index}-0`,
             },
             {
-              user: `user:${index}-1`,
+              user: `user:${USER_PREFIX}-${index}-1`,
               relation: "admin",
-              object: `repo:${index}-1`,
+              object: `repo:${OBJECT_PREFIX}-${index}-1`,
             },
             {
-              user: `user:${index}-2`,
+              user: `user:${USER_PREFIX}-${index}-2`,
               relation: "admin",
-              object: `repo:${index}-2`,
+              object: `repo:${OBJECT_PREFIX}-${index}-2`,
             },
             {
-              user: `user:${index}-3`,
+              user: `user:${USER_PREFIX}-${index}-3`,
               relation: "admin",
-              object: `repo:${index}-3`,
+              object: `repo:${OBJECT_PREFIX}-${index}-3`,
             },
             {
-              user: `user:${index}-4`,
+              user: `user:${USER_PREFIX}-${index}-4`,
               relation: "admin",
-              object: `repo:${index}-4`,
+              object: `repo:${OBJECT_PREFIX}-${index}-4`,
             },
             {
-              user: `user:${index}-5`,
+              user: `user:${USER_PREFIX}-${index}-5`,
               relation: "admin",
-              object: `repo:${index}-5`,
+              object: `repo:${OBJECT_PREFIX}-${index}-5`,
             },
             {
-              user: `user:${index}-6`,
+              user: `user:${USER_PREFIX}-${index}-6`,
               relation: "admin",
-              object: `repo:${index}-6`,
+              object: `repo:${OBJECT_PREFIX}-${index}-6`,
             },
             {
-              user: `user:${index}-7`,
+              user: `user:${USER_PREFIX}-${index}-7`,
               relation: "admin",
-              object: `repo:${index}-7`,
+              object: `repo:${OBJECT_PREFIX}-${index}-7`,
             },
             {
-              user: `user:${index}-8`,
+              user: `user:${USER_PREFIX}-${index}-8`,
               relation: "admin",
-              object: `repo:${index}-8`,
+              object: `repo:${OBJECT_PREFIX}-${index}-8`,
             },
             {
-              user: `user:${index}-9`,
+              user: `user:${USER_PREFIX}-${index}-9`,
               relation: "admin",
-              object: `repo:${index}-9`,
+              object: `repo:${OBJECT_PREFIX}-${index}-9`,
             },
           ],
         },
@@ -88,54 +92,54 @@ async function cleanup_data(authFga, modelId) {
         deletes: {
           tuple_keys: [
             {
-              user: `user:${index}-0`,
+              user: `user:${USER_PREFIX}-${index}-0`,
               relation: "admin",
-              object: `repo:${index}-0`,
+              object: `repo:${OBJECT_PREFIX}-${index}-0`,
             },
             {
-              user: `user:${index}-1`,
+              user: `user:${USER_PREFIX}-${index}-1`,
               relation: "admin",
-              object: `repo:${index}-1`,
+              object: `repo:${OBJECT_PREFIX}-${index}-1`,
             },
             {
-              user: `user:${index}-2`,
+              user: `user:${USER_PREFIX}-${index}-2`,
               relation: "admin",
-              object: `repo:${index}-2`,
+              object: `repo:${OBJECT_PREFIX}-${index}-2`,
             },
             {
-              user: `user:${index}-3`,
+              user: `user:${USER_PREFIX}-${index}-3`,
               relation: "admin",
-              object: `repo:${index}-3`,
+              object: `repo:${OBJECT_PREFIX}-${index}-3`,
             },
             {
-              user: `user:${index}-4`,
+              user: `user:${USER_PREFIX}-${index}-4`,
               relation: "admin",
-              object: `repo:${index}-4`,
+              object: `repo:${OBJECT_PREFIX}-${index}-4`,
             },
             {
-              user: `user:${index}-5`,
+              user: `user:${USER_PREFIX}-${index}-5`,
               relation: "admin",
-              object: `repo:${index}-5`,
+              object: `repo:${OBJECT_PREFIX}-${index}-5`,
             },
             {
-              user: `user:${index}-6`,
+              user: `user:${USER_PREFIX}-${index}-6`,
               relation: "admin",
-              object: `repo:${index}-6`,
+              object: `repo:${OBJECT_PREFIX}-${index}-6`,
             },
             {
-              user: `user:${index}-7`,
+              user: `user:${USER_PREFIX}-${index}-7`,
               relation: "admin",
-              object: `repo:${index}-7`,
+              object: `repo:${OBJECT_PREFIX}-${index}-7`,
             },
             {
-              user: `user:${index}-8`,
+              user: `user:${USER_PREFIX}-${index}-8`,
               relation: "admin",
-              object: `repo:${index}-8`,
+              object: `repo:${OBJECT_PREFIX}-${index}-8`,
             },
             {
-              user: `user:${index}-9`,
+              user: `user:${USER_PREFIX}-${index}-9`,
               relation: "admin",
-              object: `repo:${index}-9`,
+              object: `repo:${OBJECT_PREFIX}-${index}-9`,
             },
           ],
         },
@@ -483,6 +487,11 @@ async function main() {
       process.env.AUTH0_FGA_STORE_ID_1,
       process.env.AUTH0_FGA_CLIENT_ID_1,
       process.env.AUTH0_FGA_CLIENT_SECRET_1
+    ),
+    run(
+      process.env.AUTH0_FGA_STORE_ID_2,
+      process.env.AUTH0_FGA_CLIENT_ID_2,
+      process.env.AUTH0_FGA_CLIENT_SECRET_2
     ),
   ];
   await Promise.all(runSet);
